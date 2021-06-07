@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/crimeList_dest">
+
+    <!-- ====================================================================== -->
+    <fragment
+        android:id="@+id/crimeList_dest"
+        android:name="com.riis.application.CrimeListFragment"
+        android:label="CrimeListFragment">
+
+        <action
+            android:id="@+id/moveToDetailView"
+            app:destination="@id/crimeDetail_dest" />
+
+    </fragment>
+
+    <!-- ====================================================================== -->
+    <fragment
+        android:id="@+id/crimeDetail_dest"
+        android:name="com.riis.application.CrimeFragment"
+        android:label="CrimeFragment" >
+
+        <argument
+            android:name="crimeId"
+            app:argType="string"
+            android:defaultValue="default" />
+
+        <action
+            android:id="@+id/showDatePickerDialog"
+            app:destination="@id/datePicker_dest" />
+
+    </fragment>
+
+    <!-- ====================================================================== -->
+    <dialog
+        android:id="@+id/datePicker_dest"
+        android:name="com.riis.application.DatePickerFragment">
+
+        <argument
+            android:name="date"
+            app:argType="long" />
+
+    </dialog>
+
+</navigation>
